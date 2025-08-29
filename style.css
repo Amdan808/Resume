@@ -3,7 +3,7 @@
     --ink: #2e3038;
     --muted:#4b5563;
     --rule: #d1d5db;
-    --link: rgb(247 92 169/ 90%);
+    --link: #c200a7;
     --active: 2px 2px 5px #fc894d;
     --name: 2.25rem;
     --sections: 1.225rem;
@@ -12,7 +12,6 @@
     --items-mobile:1.1rem;
     --text-sm: 0.9375rem;
     --text-sm-mobile:0.875rem;
-    --text-base: 'Segoe UI';
     --content-max: 68ch;
     --meter-width:150px;
     --space-0:0;
@@ -54,14 +53,12 @@ h1, h2, h3 {
 
 p {
     margin-block: var(--space-2) var(--space-6);
-     
 }
 
 ul {
     margin-block: var(--space-2) var(--space-6); 
     padding-inline-start: var(--space-5); 
     list-style-position: outside;
-
 }
 
 li {
@@ -110,12 +107,12 @@ body {
 .header h1 { 
     font-size: var(--name);
     font-weight: 700;
-    text-transform: uppercase;
+    text-transform: capitalize;
 }
 
 .address{
     display: flex;
-    flex-flow: row;
+    flex-flow: row wrap;
     align-items: baseline;
     font-style: normal;
     font-size: var(--contact);
@@ -124,10 +121,7 @@ body {
     color: var(--muted);
 }
 
-.address a[href^="mailto"],
-.address a[href^="tel"] {
-  white-space: nowrap;
-}
+
 
 a:link, a:visited {
     text-decoration: none;
@@ -174,9 +168,6 @@ h2.title::after {
     font-size: var(--text-sm);
     font-weight: 400;
     color: var(--muted);
-
-    /* margin-top: var(--space-2); */
-  
 }
 
 .meta-wrapper{
@@ -184,7 +175,6 @@ h2.title::after {
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: flex-start;
-  
 }
 
 .meta-wrapper p {
@@ -201,8 +191,50 @@ h2.title::after {
 
 meter {
     width: var(--meter-width) ;
-
 }
+
+.core h3, .tech h3 {
+    padding: var(--space-0);
+    margin-block-end: var(--space-2);
+    font-weight: 400;
+    text-align: center;
+    color: var(--muted);
+}
+
+.core h3::before, .tech h3::before{
+    content: "•";
+    margin-inline: var(--space-1);
+}
+
+.contact-item:not(:first-child)::before {
+    content: "•";
+    margin-inline: var(--space-2);
+}
+
+.lang-description {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    font-weight: 400;
+    color: var(--muted);
+    margin-block-start: var(--space-0);
+}
+
+.company-date {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.company-date p {margin-block: var(--space-2) var(--space-1);}
+
+.italic { font-style: italic;}
+
+.education h3 {
+    margin-block: var(--space-2) var(--space-0);
+}
+
 
 @media (width <= 780px) {
     .core-tech {
@@ -233,94 +265,4 @@ meter {
     margin-inline: var(--space-2);
 }
 
-}
-
-.core h3, .tech h3 {
-    padding: var(--space-0);
-    margin-block-end: var(--space-2);
-    font-weight: 400;
-    text-align: center;
-    color: var(--muted);
-}
-
-.core h3::before, .tech h3::before{
-    content: "•";
-    margin-inline: var(--space-1);
-}
-
-@media print {
-    @page {
-        margin: 16mm;
-    }
-
-    * {
-        print-color-adjust: exact;
-    }
-
-    article {
-        break-inside: avoid;
-    }
- 
-.container { 
-    max-width: none;
-     padding: 0; 
-    }
-
-    .core-tech { 
-    grid-template-columns: 1fr 1fr; 
-    column-gap: var(--space-6);
-  }
-
-   .address { 
-    display: flex; 
-    flex-flow: row nowrap;             
-    gap: var(--space-2);
-  }
-    
-
-    h2 {
-        break-after: avoid;
-    }
-
-    p, li {
-        orphans: 2;
-        widows:2;
-    }
-
-     /* a[href^="https/"]::after {
-        content: " (" attr(href) ")";
-        font-size: 0.8em;
-        color: #666;
-    }
-     */
-}
-
-.contact-item:not(:first-child)::before {
-    content: "•";
-    margin-inline: var(--space-2);
-}
-
-.lang-description {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    font-size: var(--text-sm);
-    font-weight: 400;
-    color: var(--muted);
-    margin-block-start: var(--space-0);
-   
-}
-
-.company-date {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-}
-
-.company-date p {margin-block: var(--space-2) var(--space-1);}
-
-.italic { font-style: italic;}
-
-.education h3 {
-    margin-block: var(--space-2) var(--space-0);
 }
